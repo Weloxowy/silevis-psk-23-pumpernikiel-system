@@ -34,7 +34,7 @@ namespace SystemZarzadzaniaPraktykami.Controllers.Student
 
             }
             [HttpPost]
-            public ActionResult<Models.Student.Student> CreateKlientEntity([FromBody] Models.Student.Student student)
+            public ActionResult<Models.Student.Student> CreateStudentEntity([FromBody] Models.Student.Student student)
             {
                 if (student == null)
                 {

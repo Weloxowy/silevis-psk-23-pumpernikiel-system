@@ -18,6 +18,7 @@ namespace SystemZarzadzaniaPraktykami.Models.Student
             Map(x => x.StudentStatus);
             Map(x => x.Login);
             Map(x => x.Password);
+            Map(x => x.Address);
 
             Table(tablename);
         }

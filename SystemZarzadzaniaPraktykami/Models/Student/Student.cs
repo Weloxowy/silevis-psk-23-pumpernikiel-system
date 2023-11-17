@@ -4,7 +4,7 @@ public class Student
 {
     public Student() : base() { }
     
-    public Student(Guid id,String StudentNumber, String Name, String MiddleNames, String Surname, DateOnly BirthDate, int StudentStatus, String login, String password)
+    public Student(Guid id,String StudentNumber, String Name, String MiddleNames, String Surname, DateOnly BirthDate, int StudentStatus, String Login, String Password, Guid Address)
     {
         this.id = id;
         this.StudentNumber = StudentNumber;
@@ -15,7 +15,7 @@ public class Student
         this.BirthDate = BirthDate;
         this.Login = Login;
         this.Password = Password;
-
+        this.Address = Address;
     }
 
     public virtual Guid id { get; set; }
@@ -27,5 +27,6 @@ public class Student
     public virtual int StudentStatus { get; set;}
     public virtual String Login { get; set;}
     public virtual String Password { get; set;}
+    public virtual Guid Address { get; set;}  
        
 }

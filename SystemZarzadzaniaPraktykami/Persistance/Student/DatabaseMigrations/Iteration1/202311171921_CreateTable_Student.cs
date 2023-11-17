@@ -1,7 +1,8 @@
 ﻿using FluentMigrator;
 namespace SystemZarzadzaniaPraktykami.Persistance.Student.DatabaseMigrations.Iteration1
 {
-    public class _202311171821_CreateTable_Student : Migration
+    [Migration(202311171921)]
+    public class _202311171921_CreateTable_Student : Migration
     {
         readonly string tableName = nameof(Models.Student.Student);
         public override void Up()
@@ -17,8 +18,11 @@ namespace SystemZarzadzaniaPraktykami.Persistance.Student.DatabaseMigrations.Ite
                     .WithColumn(nameof(Models.Student.Student.BirthDate)).AsDate().NotNullable()
                     .WithColumn(nameof(Models.Student.Student.Login)).AsString().NotNullable()
                     .WithColumn(nameof(Models.Student.Student.Password)).AsString().NotNullable()
-                    .WithColumn(nameof(Models.Student.Student.StudentStatus)).AsInt32().NotNullable();
-                    
+                    .WithColumn(nameof(Models.Student.Student.StudentStatus)).AsInt32().NotNullable()
+                    .WithColumn("Address").AsGuid().NotNullable();
+
+                    Create.ForeignKey("FK_Address").FromTable(tableName).ForeignColumn("Address").ToTable("Address").PrimaryColumn("id");
+
             }
 
         }
