@@ -7,8 +7,9 @@ public class Company
        
     }
 
-    public Company(string name, Address.Address address)
+    public Company(Guid id, string name, Address.Address address)
     {
+        this.id = id;
         this.name = name;
         this.address = address;
     }
