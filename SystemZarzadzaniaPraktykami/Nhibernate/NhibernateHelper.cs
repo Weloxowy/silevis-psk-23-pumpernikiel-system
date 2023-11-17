@@ -3,6 +3,7 @@ using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
+using SystemZarzadzaniaPraktykami.Models.Firms;
 
 namespace SystemZarzadzaniaPraktykami.Nhibernate;
 
@@ -28,6 +29,9 @@ namespace SystemZarzadzaniaPraktykami.Nhibernate;
                             MsSqlConfiguration.MsSql2012.ConnectionString("Server=localhost\\SQLEXPRESS;Database=Hackaton;Integrated Security=SSPI;Application Name=SystemZarzadzaniaPraktykami;TrustServerCertificate=true;")
                             )
                             
+                        )
+                        .Mappings(m =>
+                            m.FluentMappings.AddFromAssemblyOf<Models.Firms.Firms>()
                             .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
                             .BuildSessionFactory();
                     }
