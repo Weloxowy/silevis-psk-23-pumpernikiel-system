@@ -37,9 +37,14 @@ namespace SystemZarzadzaniaPraktykami.Nhibernate;
                             m.FluentMappings.AddFromAssemblyOf<Models.Coordinator.Coordinator>()
                         )
                         .Mappings(m =>
+<<<<<<< HEAD
                             m.FluentMappings.AddFromAssemblyOf<Models.Firms.Firms>()
                         )
-                        .Mappings(m =>
+                        .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
+                        .BuildSessionFactory();
+                }
+                return _sessionFactory;
+=======
                             m.FluentMappings.AddFromAssemblyOf<Models.Address.Address>()
                         )
                             .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
@@ -48,6 +53,7 @@ namespace SystemZarzadzaniaPraktykami.Nhibernate;
 
                     return _sessionFactory;
 
+>>>>>>> 5e899c434f599166030a3f2dca1af99bd5802681
             }
         }
     }
