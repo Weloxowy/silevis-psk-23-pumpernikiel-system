@@ -1,8 +1,7 @@
 ﻿using System;
+namespace SystemZarzadzaniaPraktykami.Persistance.Koordynator;
 
-public class Class1
+public class KoordynatorRepository
 {
-	public Class1()
-	{
-	}
+
 }

@@ -1,8 +1,10 @@
 ﻿using System;
 
-public class Class1
+using SystemZarzadzaniaPraktykami.Persistance.Koordynator;
+
+public class IKoordynatorServices
 {
-	public Class1()
+	public IKoordynatorServices()
 	{
 	}
 }
