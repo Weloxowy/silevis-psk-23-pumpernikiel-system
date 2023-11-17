@@ -5,6 +5,7 @@ using NHibernate;
 using NHibernate.Tool.hbm2ddl;
 using SystemZarzadzaniaPraktykami.Models.IntershipDate;
 using SystemZarzadzaniaPraktykami.Models.Student;
+using SystemZarzadzaniaPraktykami.Models.Firms;
 
 namespace SystemZarzadzaniaPraktykami.Nhibernate;
 
@@ -34,6 +35,9 @@ namespace SystemZarzadzaniaPraktykami.Nhibernate;
                             )
                         .Mappings(m =>
                             m.FluentMappings.AddFromAssemblyOf<Models.Coordinator.Coordinator>()
+                        )
+                        .Mappings(m =>
+                            m.FluentMappings.AddFromAssemblyOf<Models.Firms.Firms>()
                         )
                         .Mappings(m =>
                             m.FluentMappings.AddFromAssemblyOf<Models.Address.Address>()

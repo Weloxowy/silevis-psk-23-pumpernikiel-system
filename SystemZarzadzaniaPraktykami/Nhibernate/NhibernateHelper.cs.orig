@@ -5,6 +5,7 @@ using NHibernate;
 using NHibernate.Tool.hbm2ddl;
 using SystemZarzadzaniaPraktykami.Models.IntershipDate;
 using SystemZarzadzaniaPraktykami.Models.Student;
+using SystemZarzadzaniaPraktykami.Models.Firms;
 
 namespace SystemZarzadzaniaPraktykami.Nhibernate;
 
@@ -35,22 +36,24 @@ namespace SystemZarzadzaniaPraktykami.Nhibernate;
                         .Mappings(m =>
                             m.FluentMappings.AddFromAssemblyOf<Models.Coordinator.Coordinator>()
                         )
-<<<<<<< HEAD
                         .Mappings(m =>
-                            m.FluentMappings.AddFromAssemblyOf<Models.Address.Address>()
+<<<<<<< HEAD
+                            m.FluentMappings.AddFromAssemblyOf<Models.Firms.Firms>()
                         )
                         .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
                         .BuildSessionFactory();
                 }
                 return _sessionFactory;
 =======
+                            m.FluentMappings.AddFromAssemblyOf<Models.Address.Address>()
+                        )
                             .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
                             .BuildSessionFactory();
                     }
 
                     return _sessionFactory;
 
->>>>>>> 8442bc4d2685145902a4f385db6a6044d860c1d2
+>>>>>>> 5e899c434f599166030a3f2dca1af99bd5802681
             }
         }
     }
