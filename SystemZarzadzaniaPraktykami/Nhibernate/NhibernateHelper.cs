@@ -4,6 +4,7 @@ using NHibernate;
 using NHibernate.Tool.hbm2ddl;
 using System.Linq.Expressions;
 using SystemZarzadzaniaPraktykami.Models.Student;
+using SystemZarzadzaniaPraktykami.Models.Firms;
 
 namespace SystemZarzadzaniaPraktykami.Nhibernate;
 
@@ -32,6 +33,9 @@ namespace SystemZarzadzaniaPraktykami.Nhibernate;
                         )
                         .Mappings(m =>
                             m.FluentMappings.AddFromAssemblyOf<Models.Coordinator.Coordinator>()
+                        )
+                        .Mappings(m =>
+                            m.FluentMappings.AddFromAssemblyOf<Models.Firms.Firms>()
                         )
                         .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
                         .BuildSessionFactory();
