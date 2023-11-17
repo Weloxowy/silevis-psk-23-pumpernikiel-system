@@ -2,6 +2,7 @@ using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
+using System.Linq.Expressions;
 using SystemZarzadzaniaPraktykami.Models.Student;
 
 namespace SystemZarzadzaniaPraktykami.Nhibernate;
@@ -19,14 +20,18 @@ namespace SystemZarzadzaniaPraktykami.Nhibernate;
         {
             get
             {
+             
                 if (_sessionFactory == null)
                 {
                     _sessionFactory = Fluently.Configure()
                         .Database(
-                            MsSqlConfiguration.MsSql2012.ConnectionString("Server=localhost\\SQLEXPRESS;Database=Hackaton;Integrated Security=SSPI;Application Name=Projekt Sklep;TrustServerCertificate=true;")
+                            MsSqlConfiguration.MsSql2012.ConnectionString("Server=localhost\\SQLEXPRESS;Database=Hackaton;Integrated Security=SSPI;Application Name=System Zarzadzania Praktykami;TrustServerCertificate=true;")
                         )
                         .Mappings(m =>
                             m.FluentMappings.AddFromAssemblyOf<Student>()
+                        )
+                        .Mappings(m =>
+                            m.FluentMappings.AddFromAssemblyOf<Models.Coordinator.Coordinator>()
                         )
                         .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
                         .BuildSessionFactory();
