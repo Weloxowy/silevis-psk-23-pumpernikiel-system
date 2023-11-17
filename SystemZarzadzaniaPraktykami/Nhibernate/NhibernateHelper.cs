@@ -27,8 +27,7 @@ namespace SystemZarzadzaniaPraktykami.Nhibernate;
                         _sessionFactory = Fluently.Configure()
                             .Database(                            
                     
-                            MsSqlConfiguration.MsSql2012.ConnectionString("Server=localhost\\SQLEXPRESS;Database=Hackaton;Integrated Security=SSPI;Application Name=System Zarzadzania Praktykami;TrustServerCertificate=true;")
-                                    "Server=localhost\\SQLEXPRESS;Database=Hackaton;Integrated Security=SSPI;Application Name=SystemZarzadzaniaPraktykami;TrustServerCertificate=true;")
+                            MsSqlConfiguration.MsSql2012.ConnectionString("Server=localhost\\SQLEXPRESS;Database=Hackaton;Integrated Security=SSPI;Application Name=SystemZarzadzaniaPraktykami;TrustServerCertificate=true;")
                             )
                             .Mappings(m =>
                                 m.FluentMappings.AddFromAssemblyOf<IntershipDate>()
