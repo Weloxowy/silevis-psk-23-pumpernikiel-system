@@ -3,12 +3,16 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+//Razor
+builder.Services.AddRazorPages();
+//Fluent migrator
 builder.Services.AddFluentMigratorCore()
     .ConfigureRunner(c =>
     {
@@ -36,5 +40,9 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.UseRouting();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapRazorPages();
+});
 app.Run();
