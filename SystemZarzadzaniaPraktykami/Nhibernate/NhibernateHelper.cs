@@ -33,6 +33,9 @@ namespace SystemZarzadzaniaPraktykami.Nhibernate;
                         .Mappings(m =>
                             m.FluentMappings.AddFromAssemblyOf<Models.Coordinator.Coordinator>()
                         )
+                        .Mappings(m =>
+                            m.FluentMappings.AddFromAssemblyOf<Models.Address.Address>()
+                        )
                         .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
                         .BuildSessionFactory();
                 }
