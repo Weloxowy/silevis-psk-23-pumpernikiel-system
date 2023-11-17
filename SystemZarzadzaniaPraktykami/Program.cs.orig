@@ -17,7 +17,11 @@ builder.Services.AddFluentMigratorCore()
     .ConfigureRunner(c =>
     {
         c.AddSqlServer2016()
+<<<<<<< HEAD
             .WithGlobalConnectionString("Server=localhost\\SQLEXPRESS;Database=Hackaton;Integrated Security=SSPI;Application Name=SystemZarzadzaniaPraktykami; TrustServerCertificate=true;")
+=======
+            .WithGlobalConnectionString("Server=localhost\\SQLEXPRESS;Database=Hackaton;Integrated Security=SSPI;Application Name=Projekt Sklep; TrustServerCertificate=true;")
+>>>>>>> 13297bdd0e1b7bf19b2958830fd36c5555f2ef52
             .ScanIn(Assembly.GetExecutingAssembly()).For.All();
     })
     .AddLogging(config => config.AddFluentMigratorConsole());
