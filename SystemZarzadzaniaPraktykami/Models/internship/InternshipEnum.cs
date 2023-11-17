@@ -1,6 +1,6 @@
 namespace SystemZarzadzaniaPraktykami.Models.internship;
 
-public enum IntershipEnum
+public enum InternshipEnum
 {
     Lipcowe = 1,
     Wrzesniowe = 2,

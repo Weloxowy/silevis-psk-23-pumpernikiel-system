@@ -27,8 +27,8 @@ var app = builder.Build();
 using var scope = app.Services.CreateScope();
 // Configure the HTTP request pipeline.
 var migrator = scope.ServiceProvider.GetService<IMigrationRunner>();
-//migrator.ListMigrations();
-//migrator.MigrateUp();
+migrator.ListMigrations();
+migrator.MigrateUp();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
