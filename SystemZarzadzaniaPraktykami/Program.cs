@@ -13,7 +13,7 @@ builder.Services.AddFluentMigratorCore()
     .ConfigureRunner(c =>
     {
         c.AddSqlServer2016()
-            .WithGlobalConnectionString("Server=localhost\\SQLEXPRESS;Database=Test;Integrated Security=SSPI;Application Name=Projekt Sklep; TrustServerCertificate=true;")
+            .WithGlobalConnectionString("Server=localhost\\SQLEXPRESS;Database=Hackaton;Integrated Security=SSPI;Application Name=Projekt Sklep; TrustServerCertificate=true;")
             .ScanIn(Assembly.GetExecutingAssembly()).For.All();
     })
     .AddLogging(config => config.AddFluentMigratorConsole());
@@ -23,8 +23,8 @@ var app = builder.Build();
 using var scope = app.Services.CreateScope();
 // Configure the HTTP request pipeline.
 var migrator = scope.ServiceProvider.GetService<IMigrationRunner>();
-//migrator.ListMigrations();
-//migrator.MigrateUp();
+migrator.ListMigrations();
+migrator.MigrateUp();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
