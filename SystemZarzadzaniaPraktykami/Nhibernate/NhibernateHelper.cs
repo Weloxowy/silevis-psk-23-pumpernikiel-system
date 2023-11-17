@@ -1,7 +1,9 @@
+using System.Linq.Expressions;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
+using SystemZarzadzaniaPraktykami.Models.IntershipDate;
 using SystemZarzadzaniaPraktykami.Models.Student;
 
 namespace SystemZarzadzaniaPraktykami.Nhibernate;
@@ -19,19 +21,24 @@ namespace SystemZarzadzaniaPraktykami.Nhibernate;
         {
             get
             {
-                if (_sessionFactory == null)
-                {
-                    _sessionFactory = Fluently.Configure()
-                        .Database(
-                            MsSqlConfiguration.MsSql2012.ConnectionString("Server=localhost\\SQLEXPRESS;Database=Hackaton;Integrated Security=SSPI;Application Name=Projekt Sklep;TrustServerCertificate=true;")
-                        )
-                        .Mappings(m =>
-                            m.FluentMappings.AddFromAssemblyOf<Student>()
-                        )
-                        .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
-                        .BuildSessionFactory();
-                }
-                return _sessionFactory;
+                
+                    if (_sessionFactory == null)
+                    {
+                        _sessionFactory = Fluently.Configure()
+                            .Database(
+                                MsSqlConfiguration.MsSql2012.ConnectionString(
+                                    "Server=localhost\\SQLEXPRESS;Database=Hackaton;Integrated Security=SSPI;Application Name=SystemZarzadzaniaPraktykami;TrustServerCertificate=true;")
+                            )
+                            .Mappings(m =>
+                                m.FluentMappings.AddFromAssemblyOf<IntershipDate>()
+                            )
+                            .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
+                            .BuildSessionFactory();
+                    }
+
+                    return _sessionFactory;
+
             }
         }
     }
+    
