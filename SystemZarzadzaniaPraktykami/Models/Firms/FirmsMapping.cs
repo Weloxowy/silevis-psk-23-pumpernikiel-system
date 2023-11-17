@@ -14,7 +14,7 @@ namespace SystemZarzadzaniaPraktykami.Models.Firms
                 Map(x => x.nip);
                 Map(x => x.regon);
                 Map(x => x.krs);
-              //  Map(x => x.mail); tu klucz obcy
+                Map(x => x.address); 
                 Table(tablename);
              }
         }

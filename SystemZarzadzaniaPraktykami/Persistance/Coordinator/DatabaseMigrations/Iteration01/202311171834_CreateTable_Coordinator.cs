@@ -20,8 +20,10 @@ namespace SystemZarzadzaniaPraktykami.Persistence.Coordinator.DatabaseMigrations
                     .WithColumn(nameof(Models.Coordinator.Coordinator.surname)).AsString().NotNullable()
                     .WithColumn(nameof(Models.Coordinator.Coordinator.company)).AsString().NotNullable()
                     .WithColumn(nameof(Models.Coordinator.Coordinator.phone_number)).AsString().NotNullable()
-                    .WithColumn(nameof(Models.Coordinator.Coordinator.mail)).AsString().NotNullable();
+                    .WithColumn(nameof(Models.Coordinator.Coordinator.mail)).AsString().NotNullable()
+                    .WithColumn("address").AsGuid().NotNullable();
 
+                Create.ForeignKey("FK_Address").FromTable(tableName).ForeignColumn("address").ToTable("Address").PrimaryColumn("id");
             }
         }
         public override void Down()

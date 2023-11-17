@@ -4,7 +4,7 @@
     {
         public Firms() : base() { }
 
-        public Firms(Guid id, string name, string phone_contact, string mail, int nip, int regon, int krs)
+        public Firms(Guid id, string name, string phone_contact, string mail, int nip, int regon, int krs, Guid address)
         {
             this.id = id;
             this.name = name;
@@ -13,7 +13,7 @@
             this.nip = nip;
             this.regon = regon;
             this.krs = krs;
-           // this.adres_id = mail;
+            this.address = address;
         }
 
 
@@ -24,6 +24,6 @@
         public virtual int nip { get; set; }
         public virtual int regon { get; set; }
         public virtual int krs { get; set; }
-        //public virtual string mail { get; set; } // dac klucz obcy dla adresu
+        public virtual Guid address { get; set; }
     }
 }
