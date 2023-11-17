@@ -1,6 +1,8 @@
-﻿namespace SystemZarzadzaniaPraktykami.Persistance.Address
+﻿using SystemZarzadzaniaPraktykami.Models.Address;
+
+namespace SystemZarzadzaniaPraktykami.Persistance.Address
 {
-    public class Class
+    public class AddressRepository : IAddressRepository
     {
     }
 }

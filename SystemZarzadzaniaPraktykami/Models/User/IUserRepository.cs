@@ -1,6 +1,6 @@
 ﻿namespace SystemZarzadzaniaPraktykami.Models.User
 {
-    public class Class
+    public interface IUserRepository
     {
     }
 }
