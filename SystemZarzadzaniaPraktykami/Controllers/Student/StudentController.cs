@@ -48,7 +48,7 @@ namespace SystemZarzadzaniaPraktykami.Controllers.Student
                         {
                             session.Save(student);
                             transaction.Commit();
-                            return CreatedAtAction(nameof(GetById), new { id = student.Id }, student);
+                            return CreatedAtAction(nameof(GetById), new { id = student.id }, student);
                         }
                         catch (Exception ex)
                         {

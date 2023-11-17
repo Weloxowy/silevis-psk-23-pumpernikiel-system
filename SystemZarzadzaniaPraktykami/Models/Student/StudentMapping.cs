@@ -9,13 +9,15 @@ namespace SystemZarzadzaniaPraktykami.Models.Student
 
         public StudentMapping()
         {
-            Id(x => x.Id).GeneratedBy.Guid();
+            Id(x => x.id).GeneratedBy.Guid();
             Map(x => x.StudentNumber);
             Map(x => x.Name);
             Map(x => x.MiddleNames);
             Map(x => x.Surname);
             Map(x => x.BirthDate);
             Map(x => x.StudentStatus);
+            Map(x => x.Login);
+            Map(x => x.Password);
 
             Table(tablename);
         }
