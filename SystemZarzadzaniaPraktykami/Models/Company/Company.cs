@@ -7,11 +7,13 @@ public class Company
        
     }
 
-    public Company(string name)
+    public Company(string name, Address.Address address)
     {
         this.name = name;
+        this.address = address;
     }
 
     public virtual Guid id { get; set; }
     public virtual string name { get; set; }
+    public virtual Address.Address address { get; set; }
 }

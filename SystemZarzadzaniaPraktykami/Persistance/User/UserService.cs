@@ -1,6 +1,8 @@
-﻿namespace SystemZarzadzaniaPraktykami.Persistance.User
+﻿using SystemZarzadzaniaPraktykami.Models.User;
+
+namespace SystemZarzadzaniaPraktykami.Persistance.User
 {
-    public class UserService
+    public class UserService : IUserService
     {
     }
 }
