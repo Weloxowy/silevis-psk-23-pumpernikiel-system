@@ -10,8 +10,9 @@ using SystemZarzadzaniaPraktykami.Persistance.User;
 var builder = WebApplication.CreateBuilder(args);
 
 PDFGen pdfgen = new PDFGen();
-
-pdfgen.AddTextToPdf(@"C:/Users/Pawel/Desktop/FileTEST.pdf", "Anna Musia³, 092137");
+pdfgen.CopyWordDocument(@"C:/Users/Pawel/Desktop/FileTEST.docx", @"C:/Users/Pawel/Desktop/FileNEW.docx");
+pdfgen.MassReplacing(@"C:/Users/Pawel/Desktop/FileNEW.docx");
+//pdfgen.AddTextToPdf(@"C:/Users/Pawel/Desktop/FileTEST.pdf", "Anna Musia³, 092137");
 
 // Add services to the container.
 builder.Services.AddControllers();
