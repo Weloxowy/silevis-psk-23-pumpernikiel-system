@@ -1,15 +1,10 @@
-﻿@page
-@model SystemZarzadzaniaPraktykami.Pages.MainPageCoordinator.IndexModel
-@{
-}
-
 <!DOCTYPE html>
 <html lang="pl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="mainPageCoordinator.css">                          
+    <link rel="stylesheet" href="mainPageStyle.css">
     <title>Strona główna</title>
 </head>
 
@@ -24,24 +19,14 @@
 
         <ul class="nav-links">
             <li class="link"><a href="#">Strona główna</a></li>
-            <li id="link1" class="link"><a href="#">Dodaj praktyki</a></li>
-            <li id="link2" class="link"><a href="#">Wystawione oferty</a></li>
-            <li id="link3" class="link"><a href="#">Wnioski</a></li>
-            <li id="link4" class="link"><a href="#">Obecni praktykanci</a></li>
-            <li id="link5" class="link"><a href="#">Uzupełnij swój profil</a></li>
+            <li id="link1" class="link"><a href="#">Twoje praktyki</a></li>
+            <li id="link2" class="link"><a href="#">Oferty praktyk</a></li>
+            <li id="link3" class="link"><a href="#">Uzupełnij swoje dane</a></li>
+            <li id="link4" class="link"><a href="#">Wygeneruj wniosek</a></li>
+            <li id="link5" class="link"><a href="#">Twoje wnioski</a></li>
         </ul>
         <div class="chooseLang">
-            <span class="PL">PL</span>
-            <span class="EN">EN</span>
-            <input type="checkbox" class="check" checked>
-
-            <div class="text textPL">
-                <h2>PL</h2>
-            </div>
-
-            <div class="text textEN">
-                <h2>EN</h2>
-            </div>
+            <button class="lang">PL EN</button>
         </div>
         <button class="btn">Wyloguj</button>
     </nav>
@@ -59,57 +44,56 @@
     </header>
 
     <section class="container">
-        <h2 class="header">DODAJ PRAKTYKI</h2>
+        <h2 class="header">TWOJE PRAKTYKI</h2>
         <p class="sub-header">
-            Tu pojawią się formularz w celu dodania nowych praktyk
+            Tu pojawią się dane na temat Twoich aktualnych praktyk
         </p>
         <div class="twojePraktyki">
-            
+
         </div>
     </section>
 
     <section class="container">
-        <h2 class="header">WYSTAWIONE OFERTY</h2>
+        <h2 class="header">OFERTY PRAKTYK</h2>
         <p class="sub-header">
-            Tu pojawią się wszystkie wystawione przez Ciebie oferty praktyk
+            Tu pojawią się wszystkie aktualne oferty praktyk
         </p>
         <div class="ofertyPraktyk">
-            
+
         </div>
     </section>
 
     <section class="container">
-        <h2 class="header">WNIOSKI</h2>
+        <h2 class="header">UZUPEŁNIJ SWOJE DANE</h2>
         <p class="sub-header">
-            Tu pojawią się wysłane przez studentów wnioski
+            Uzupełnij swoje dane w celu wyszukania odpowiednich dla Ciebie praktyk
         </p>
         <div class="ofertyPraktyk">
-            
+
         </div>
     </section>
 
     <section class="container">
-        <h2 class="header">OBECNI PRAKTYKANCI</h2>
+        <h2 class="header">KREATOR WNIOSKÓW</h2>
         <p class="sub-header">
-            Tutaj znajdziesz już przyjętych praktykantów
+            Tu pojawią się dane na temat Twoich aktualnych praktyk
         </p>
         <div class="twojePraktyki">
-            
+
         </div>
     </section>
 
     <section class="container">
-        <h2 class="header">UZUPEŁNIJ SWÓJ PROFIL</h2>
+        <h2 class="header">TWOJE WNIOSKI</h2>
         <p class="sub-header">
-            Tutaj uzupełnisz swój profil pracodawcy
+            Tu pojawią się dane na temat Twoich aktualnych praktyk
         </p>
         <div class="twojePraktyki">
-            
+
         </div>
     </section>
 
     <footer class="container">
-
     </footer>
 
     <div class="copyright">

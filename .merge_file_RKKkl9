@@ -1,4 +1,4 @@
-ï»¿* {
+* {
     padding: 0;
     margin: 0;
     outline: none;
@@ -74,89 +74,26 @@ nav {
 }
 
 .chooseLang {
-    position: relative;
+    -webkit-text-stroke: 1px black;
     padding: 0px;
+    box-shadow: 2px 2px 2px #743A33;
 }
 
-    .chooseLang .text {
-        display: block;
-    }
-
-        .chooseLang .text.textPL {
-            float: inline-start;
-            display: none;
-            color: #FCF8EE;
-            height: auto;
-            position: sticky;
-        }
-
-        .chooseLang .text.textEN {
-            float: inline-start;
-            display: block;
-            color: #FCF8EE;
-            clear: both;
-            position: sticky;
-        }
-
-.check {
-    position: relative;
-    top: -10px;
-    width: 100px;
+.lang {
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
+    background: linear-gradient(270deg, #E3D8B1 50%, rgba(227, 216, 177, 0.00) 55.07%), linear-gradient(94deg, #C92130 59.93%, rgba(201, 33, 48, 0.00) 87.16%);
+    color: #111;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-    .check::before {
-        position: absolute;
-        content: '';
-        width: 100px;
-        height: 40px;
-        background: #E3D8B1;
-        border-radius: 8px;
-        box-shadow: 2px 3px 5px #743A33;
+    /*kiedy przycisk jest naciskany to zmienia kolor, mog³oby to odpowiadaæ zmianie jêzyka*/
+    .lang:active {
+        background: linear-gradient(270deg, rgba(227, 216, 177, 0.00) 50%, #E3D8B1 53.38%), linear-gradient(94deg, #C92130 89.98%, rgba(201, 33, 48, 0.00) 121.92%);
     }
-
-    .check:checked::before {
-        background: #C92130;
-        left: 0px;
-    }
-
-    .check::after {
-        content: '';
-        position: absolute;
-        left: 0px;
-        width: 50px;
-        height: 40px;
-        background: #fff;
-        border-radius: 8px;
-        transition: 0.25s;
-        border: 2px solid #333;
-        box-sizing: border-box;
-    }
-
-    .check:checked::after {
-        left: 50px;
-        border: 2px solid #C92130;
-    }
-
-    .check:checked ~ .text.textPL {
-        display: block;
-    }
-
-    .check:checked ~ .text.textEN {
-        display: none;
-    }
-
-.PL {
-    position: static;
-    color: #FCF8EE;
-    visibility: hidden;
-}
-
-.EN {
-    position: static;
-    color: #FCF8EE;
-    visibility: hidden;
-}
 
 .btn:hover {
     background-color: #C92130;
