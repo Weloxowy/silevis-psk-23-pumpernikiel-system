@@ -3,9 +3,12 @@ using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
+<<<<<<< HEAD
+=======
 using SystemZarzadzaniaPraktykami.Models.IntershipDate;
 using SystemZarzadzaniaPraktykami.Models.Student;
 using SystemZarzadzaniaPraktykami.Models.Firms;
+>>>>>>> 32df099b5f3fb4c548eec1eb6fe105bd60e6637a
 
 namespace SystemZarzadzaniaPraktykami.Nhibernate;
 
@@ -30,6 +33,9 @@ namespace SystemZarzadzaniaPraktykami.Nhibernate;
                     
                             MsSqlConfiguration.MsSql2012.ConnectionString("Server=localhost\\SQLEXPRESS;Database=Hackaton;Integrated Security=SSPI;Application Name=SystemZarzadzaniaPraktykami;TrustServerCertificate=true;")
                             )
+<<<<<<< HEAD
+                            
+=======
                             .Mappings(m =>
                                 m.FluentMappings.AddFromAssemblyOf<IntershipDate>()
                             )
@@ -37,23 +43,18 @@ namespace SystemZarzadzaniaPraktykami.Nhibernate;
                             m.FluentMappings.AddFromAssemblyOf<Models.Coordinator.Coordinator>()
                         )
                         .Mappings(m =>
-<<<<<<< HEAD
                             m.FluentMappings.AddFromAssemblyOf<Models.Firms.Firms>()
                         )
-                        .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
-                        .BuildSessionFactory();
-                }
-                return _sessionFactory;
-=======
+                        .Mappings(m =>
                             m.FluentMappings.AddFromAssemblyOf<Models.Address.Address>()
                         )
+>>>>>>> 32df099b5f3fb4c548eec1eb6fe105bd60e6637a
                             .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
                             .BuildSessionFactory();
                     }
 
                     return _sessionFactory;
 
->>>>>>> 5e899c434f599166030a3f2dca1af99bd5802681
             }
         }
     }

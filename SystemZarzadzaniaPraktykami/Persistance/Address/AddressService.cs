@@ -2,7 +2,7 @@
 
 namespace SystemZarzadzaniaPraktykami.Persistance.Address
 {
-    public class AddressRepository : IAddressRepository
+    public class AddressService : IAddressService
     {
     }
 }

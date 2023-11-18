@@ -1,93 +1,92 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using SystemZarzadzaniaPraktykami.Nhibernate;
 
-namespace SystemZarzadzaniaPraktykami.Controllers.Address
+namespace SystemZarzadzaniaPraktykami.Controllers.Address;
+[ApiController]
+[Route("[controller]")]
+public class AddressController : ControllerBase
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class AddressController : ControllerBase
+    
+    [HttpGet]
+    public ActionResult<IEnumerable<Models.Address.Address>> GetAll()
     {
-        [HttpGet]
-        public ActionResult<IEnumerable<Models.Address.Address>> GetAll()
+        using (var session = NHibernateHelper.OpenSession())
         {
-            using (var session = NHibernateHelper.OpenSession())
-            {
-                var addressEntities = session.Query<Models.Address.Address>().ToList();
-                return Ok(addressEntities);
-            }
+            var address = session.Query<Models.Address.Address>().ToList();
+            return Ok(address);
         }
-        [HttpGet("{id}")]
-        public ActionResult<Models.Address.Address> GetById(Guid id)
-        {
-            using (var session = NHibernateHelper.OpenSession())
-            {
-                var addressEntity = session.Get<Models.Address.Address>(id);
+    }
 
-                if (addressEntity == null)
+    [HttpGet("{id}")]
+    public ActionResult<Models.Address.Address> GetById(Guid id)
+    {
+        using (var session = NHibernateHelper.OpenSession())
+        {
+            var Adres = session.Get<Models.Address.Address>(id);
+
+            if (Adres == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(Adres);
+        }
+
+    }
+    [HttpPost]
+    public ActionResult<Models.Address.Address> CreateAdresEntity([FromBody] Models.Address.Address Adres)
+    {
+        if (Adres == null)
+        {
+            return BadRequest("Invalid data");
+        }
+        using (var session = NHibernateHelper.OpenSession())
+        {
+            using (var transaction = session.BeginTransaction())
+            {
+                try
                 {
-                    return NotFound();
+                    session.Save(Adres);
+                    transaction.Commit();
+                    return CreatedAtAction(nameof(GetById), new { id = Adres.id }, Adres);
                 }
-
-                return Ok(addressEntity);
-            }
-
-        }
-        [HttpPost]
-        public ActionResult<Models.Address.Address> CreateAddressEntity([FromBody] Models.Address.Address address)
-        {
-            if (address == null)
-            {
-                return BadRequest("Invalid data");
-            }
-            using (var session = NHibernateHelper.OpenSession())
-            {
-                using (var transaction = session.BeginTransaction())
+                catch (Exception ex)
                 {
-                    try
-                    {
-                        session.Save(address);
-                        transaction.Commit();
-                        return CreatedAtAction(nameof(GetById), new { id = address.id }, address);
-                    }
-                    catch (Exception ex)
-                    {
-                        transaction.Rollback();
-                        return StatusCode(StatusCodes.Status500InternalServerError, $"Error: {ex.Message}");
-                    }
+                    transaction.Rollback();
+                    return StatusCode(StatusCodes.Status500InternalServerError, $"Error: {ex.Message}");
                 }
             }
-
         }
-        [HttpDelete("{id}")]
-        public ActionResult DeletePolisy(Guid id)
+    }
+    [HttpDelete("{id}")]
+    public ActionResult DeleteKlientEntity(Guid id)
+    {
+        using (var session = NHibernateHelper.OpenSession())
         {
-            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
             {
-                using (var transaction = session.BeginTransaction())
+                try
                 {
-                    try
+                    var adres = session.Get<Models.Address.Address>(id);
+
+                    if (adres == null)
                     {
-                        var address = session.Get<Models.Address.Address>(id);
-
-                        if (address == null)
-                        {
-                            return NotFound();
-                        }
-
-
-                        session.Delete(address);
-
-
-                        transaction.Commit();
-
-                        return NoContent();
+                        return NotFound();
                     }
-                    catch (Exception ex)
-                    {
 
-                        transaction.Rollback();
-                        return StatusCode(StatusCodes.Status500InternalServerError, $"Error: {ex.Message}");
-                    }
+
+                    session.Delete(adres);
+
+
+                    transaction.Commit();
+
+                    return NoContent();
+                }
+                catch (Exception ex)
+                {
+
+                    transaction.Rollback();
+                    return StatusCode(StatusCodes.Status500InternalServerError, $"Error: {ex.Message}");
                 }
             }
         }
