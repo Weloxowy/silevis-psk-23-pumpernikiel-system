@@ -5,6 +5,7 @@ using Microsoft.Extensions.Hosting;
 using System.Reflection;
 using SystemZarzadzaniaPraktykami.Models.User;
 using SystemZarzadzaniaPraktykami.Persistance.User;
+using SystemZarzadzaniaPraktykami.wwwroot.WebControllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -55,5 +56,4 @@ app.UseEndpoints(endpoints =>
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
-User user = new User();
 app.Run();

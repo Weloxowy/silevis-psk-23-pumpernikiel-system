@@ -11,8 +11,11 @@ namespace SystemZarzadzaniaPraktykami.wwwroot.WebControllers;
 
 public class LoginController : Controller
 {
-    private readonly UserService _userService = new UserService();
-    
+    private readonly IUserService _userService;
+    public LoginController(IUserService userService)
+    {
+        _userService = userService;
+    }
     // GET: /Login/RedirectToExample
     [HttpGet]
     public async Task<IActionResult> RedirectToExample(string identyfikator)
@@ -27,6 +30,7 @@ public class LoginController : Controller
             {
                 string json = await response.Content.ReadAsStringAsync();
                 User user = Newtonsoft.Json.JsonConvert.DeserializeObject<User>(json);
+                Console.WriteLine(user.firstName);
                 _userService.SetLoggedInUser(user);
                 
             }

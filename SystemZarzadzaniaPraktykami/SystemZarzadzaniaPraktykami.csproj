@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="wwwroot\WebControllers\HomeController.cs" />
     <Compile Include="wwwroot\WebControllers\LoginController.cs" />
   </ItemGroup>
 
