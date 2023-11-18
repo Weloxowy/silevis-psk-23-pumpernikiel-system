@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace SystemZarzadzaniaPraktykami.Pages.Authentication;
+namespace SystemZarzadzaniaPraktykami.Views.Home;
 
 public class Index : PageModel
 {
     public void OnGet()
     {
-
+        
     }
 }

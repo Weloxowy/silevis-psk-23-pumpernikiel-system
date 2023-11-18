@@ -1,18 +1,26 @@
 using FluentMigrator.Runner;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System.Reflection;
+using SystemZarzadzaniaPraktykami.Models.User;
+using SystemZarzadzaniaPraktykami.Controllers.PDF;
+using SystemZarzadzaniaPraktykami.Persistance.User;
+
 var builder = WebApplication.CreateBuilder(args);
 
+PDFGen pdfgen = new PDFGen();
+
+pdfgen.AddTextToPdf(@"C:/Users/Pawel/Desktop/FileTEST.pdf", "Anna Musia³, 092137");
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-//Razor
 builder.Services.AddRazorPages();
-//Fluent migrator
+builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IUserService, UserService>();
+// Fluent Migrator
 builder.Services.AddFluentMigratorCore()
     .ConfigureRunner(c =>
     {
@@ -21,28 +29,36 @@ builder.Services.AddFluentMigratorCore()
             .ScanIn(Assembly.GetExecutingAssembly()).For.All();
     })
     .AddLogging(config => config.AddFluentMigratorConsole());
+
+
 var app = builder.Build();
 
-
 using var scope = app.Services.CreateScope();
-// Configure the HTTP request pipeline.
 var migrator = scope.ServiceProvider.GetService<IMigrationRunner>();
 migrator.ListMigrations();
 migrator.MigrateUp();
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
-app.MapControllers();
 app.UseRouting();
+app.UseDefaultFiles();
+app.UseStaticFiles();
+app.MapControllers();
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapRazorPages();
+    //endpoints.MapDefaultControllerRoute();
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
 });
+User user = new User();
 app.Run();
