@@ -1,11 +1,11 @@
-﻿* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
 
-body {
+body{
     background-color: #c9d6ff;
     background: linear-gradient(to right, #e2e2e2, rgb(239, 49, 49));
     display: flex;
@@ -15,7 +15,7 @@ body {
     height: 100vh;
 }
 
-.container {
+.container{
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
@@ -26,72 +26,72 @@ body {
     min-height: 480px;
 }
 
-    .container p {
-        font-size: 14px;
-        line-height: 20px;
-        letter-spacing: 0.3px;
-        margin: 20px 0;
-    }
+.container p{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 20px 0;
+}
 
-    .container span {
-        font-size: 12px;
-    }
+.container span{
+    font-size: 12px;
+}
 
-    .container a {
-        color: #333;
-        font-size: 13px;
-        text-decoration: none;
-        margin: 15px 0 10px;
-    }
+.container a{
+    color: #333;
+    font-size: 13px;
+    text-decoration: none;
+    margin: 15px 0 10px;
+}
 
-    .container button {
-        background-color: #C92130;
-        color: #fff;
-        font-size: 12px;
-        padding: 10px 45px;
-        border: 1px solid transparent;
-        border-radius: 8px;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        margin-top: 10px;
-        cursor: pointer;
-    }
+.container button{
+    background-color: #C92130;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+}
 
-    .container form {
-        background-color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding: 0 40px;
-        height: 100%;
-    }
+.container form{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
 
-    .container input {
-        background-color: #eee;
-        border: none;
-        margin: 8px 0;
-        padding: 10px 15px;
-        font-size: 13px;
-        border-radius: 8px;
-        width: 100%;
-        outline: none;
-    }
+.container input{
+    background-color: #eee;
+    border: none;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+}
 
-.form-container {
+.form-container{
     position: absolute;
     top: 0;
     height: 100%;
 }
 
-.sign-in {
+.sign-in{
     left: 0;
     width: 50%;
     z-index: 2;
 }
 
-.toggle-container {
+.toggle-container{
     position: absolute;
     top: 0;
     left: 50%;
@@ -102,7 +102,7 @@ body {
     z-index: 1000;
 }
 
-.toggle {
+.toggle{
     background-color: #C92130;
     height: 100%;
     background: linear-gradient(to right, #C92130, #C92130);
@@ -113,7 +113,7 @@ body {
     width: 200%;
 }
 
-.toggle-image {
+.toggle-image{
     position: absolute;
     margin-left: 50%;
     width: 50%;
@@ -127,7 +127,7 @@ body {
     top: 0;
 }
 
-#logo-politechnika {
+#logo-politechnika{
     width: 140%;
     height: 45%;
 }
