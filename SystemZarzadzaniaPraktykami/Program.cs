@@ -3,8 +3,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Reflection;
+using SystemZarzadzaniaPraktykami.Controllers.PDF;
 
 var builder = WebApplication.CreateBuilder(args);
+
+PDFGen pdfgen = new PDFGen();
+
+pdfgen.AddTextToPdf(@"C:/Users/Pawel/Desktop/FileTEST.pdf", "Anna Musia³, 092137");
 
 // Add services to the container.
 builder.Services.AddControllers();
