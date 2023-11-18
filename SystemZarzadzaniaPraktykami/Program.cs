@@ -1,6 +1,8 @@
 using FluentMigrator.Runner;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+using SystemZarzadzaniaPraktykami.Controllers.PDFParse;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -22,6 +24,11 @@ builder.Services.AddFluentMigratorCore()
     })
     .AddLogging(config => config.AddFluentMigratorConsole());
 var app = builder.Build();
+
+
+PDFGen pdfgen = new PDFGen();
+
+pdfgen.AddTextToPdf(@"C:/Users/Pawel/Desktop/FileTEST.pdf", "Anna Musia³, 092137");
 
 
 using var scope = app.Services.CreateScope();
