@@ -1,10 +1,10 @@
-﻿
+<!DOCTYPE html>
 <html lang="pl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="mainPageStyle.css">                          
+    <link rel="stylesheet" href="mainPageStyle.css">
     <title>Strona główna</title>
 </head>
 
@@ -13,7 +13,7 @@
     <nav>
         <div class="nav-logo">
             <a href="#">
-                <img src="logo-politechnika.jpg">
+                <img src="logo.png">
             </a>
         </div>
 
@@ -22,7 +22,12 @@
             <li id="link1" class="link"><a href="#">Twoje praktyki</a></li>
             <li id="link2" class="link"><a href="#">Oferty praktyk</a></li>
             <li id="link3" class="link"><a href="#">Uzupełnij swoje dane</a></li>
+            <li id="link4" class="link"><a href="#">Wygeneruj wniosek</a></li>
+            <li id="link5" class="link"><a href="#">Twoje wnioski</a></li>
         </ul>
+        <div class="chooseLang">
+            <button class="lang">PL EN</button>
+        </div>
         <button class="btn">Wyloguj</button>
     </nav>
 
@@ -44,32 +49,51 @@
             Tu pojawią się dane na temat Twoich aktualnych praktyk
         </p>
         <div class="twojePraktyki">
-            
+
         </div>
     </section>
 
     <section class="container">
         <h2 class="header">OFERTY PRAKTYK</h2>
         <p class="sub-header">
-            @ViewBag.Message
+            Tu pojawią się wszystkie aktualne oferty praktyk
         </p>
         <div class="ofertyPraktyk">
-            
+
         </div>
     </section>
 
     <section class="container">
         <h2 class="header">UZUPEŁNIJ SWOJE DANE</h2>
         <p class="sub-header">
-            uzupełnij swoje dane 
+            Uzupełnij swoje dane w celu wyszukania odpowiednich dla Ciebie praktyk
         </p>
         <div class="ofertyPraktyk">
-            
+
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="header">KREATOR WNIOSKÓW</h2>
+        <p class="sub-header">
+            Tu pojawią się dane na temat Twoich aktualnych praktyk
+        </p>
+        <div class="twojePraktyki">
+
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="header">TWOJE WNIOSKI</h2>
+        <p class="sub-header">
+            Tu pojawią się dane na temat Twoich aktualnych praktyk
+        </p>
+        <div class="twojePraktyki">
+
         </div>
     </section>
 
     <footer class="container">
-
     </footer>
 
     <div class="copyright">

@@ -4,10 +4,15 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Reflection;
 using SystemZarzadzaniaPraktykami.Models.User;
+using SystemZarzadzaniaPraktykami.Controllers.PDF;
 using SystemZarzadzaniaPraktykami.Persistance.User;
 using SystemZarzadzaniaPraktykami.wwwroot.WebControllers;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//PDFGen pdfgen = new PDFGen();
+
+//pdfgen.AddTextToPdf(@"C:/Users/Pawel/Desktop/FileTEST.pdf", "Anna Musia³, 092137");
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -31,8 +36,8 @@ var app = builder.Build();
 
 using var scope = app.Services.CreateScope();
 var migrator = scope.ServiceProvider.GetService<IMigrationRunner>();
-migrator.ListMigrations();
-migrator.MigrateUp();
+//migrator.ListMigrations();
+//migrator.MigrateUp();
 
 if (app.Environment.IsDevelopment())
 {

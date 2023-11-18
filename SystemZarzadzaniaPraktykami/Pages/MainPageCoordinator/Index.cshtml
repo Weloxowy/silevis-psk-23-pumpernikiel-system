@@ -1,0 +1,123 @@
+﻿@page
+@model SystemZarzadzaniaPraktykami.Pages.MainPageCoordinator.IndexModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mainPageCoordinator.css">                          
+    <title>Strona główna</title>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-logo">
+            <a href="#">
+                <img src="logo.png">
+            </a>
+        </div>
+
+        <ul class="nav-links">
+            <li class="link"><a href="#">Strona główna</a></li>
+            <li id="link1" class="link"><a href="#">Dodaj praktyki</a></li>
+            <li id="link2" class="link"><a href="#">Wystawione oferty</a></li>
+            <li id="link3" class="link"><a href="#">Wnioski</a></li>
+            <li id="link4" class="link"><a href="#">Obecni praktykanci</a></li>
+            <li id="link5" class="link"><a href="#">Uzupełnij swój profil</a></li>
+        </ul>
+        <div class="chooseLang">
+            <span class="PL">PL</span>
+            <span class="EN">EN</span>
+            <input type="checkbox" class="check" checked>
+
+            <div class="text textPL">
+                <h2>PL</h2>
+            </div>
+
+            <div class="text textEN">
+                <h2>EN</h2>
+            </div>
+        </div>
+        <button class="btn">Wyloguj</button>
+    </nav>
+
+    <header class="container">
+        <div class="content">
+            <span class="blur"></span>
+            <span class="blur"></span>
+            <H1>System zarządzania praktykami <span>Politechniki Świętokrzyskiej</span> </H1>
+            <p>
+                System zarządzania praktykami stworzony z myślą o studentach szukających praktyki zawodowej oraz dla pracodawców szukających praktykantów
+            </p>
+            <button class="btn">Zaczynajmy</button>
+        </div>
+    </header>
+
+    <section class="container">
+        <h2 class="header">DODAJ PRAKTYKI</h2>
+        <p class="sub-header">
+            Tu pojawią się formularz w celu dodania nowych praktyk
+        </p>
+        <div class="twojePraktyki">
+            
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="header">WYSTAWIONE OFERTY</h2>
+        <p class="sub-header">
+            Tu pojawią się wszystkie wystawione przez Ciebie oferty praktyk
+        </p>
+        <div class="ofertyPraktyk">
+            
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="header">WNIOSKI</h2>
+        <p class="sub-header">
+            Tu pojawią się wysłane przez studentów wnioski
+        </p>
+        <div class="ofertyPraktyk">
+            
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="header">OBECNI PRAKTYKANCI</h2>
+        <p class="sub-header">
+            Tutaj znajdziesz już przyjętych praktykantów
+        </p>
+        <div class="twojePraktyki">
+            
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="header">UZUPEŁNIJ SWÓJ PROFIL</h2>
+        <p class="sub-header">
+            Tutaj uzupełnisz swój profil pracodawcy
+        </p>
+        <div class="twojePraktyki">
+            
+        </div>
+    </section>
+
+    <footer class="container">
+
+    </footer>
+
+    <div class="copyright">
+        Copyright © 2023 PumpernikielTeam. Wszystkie prawa zastżeżone.
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
