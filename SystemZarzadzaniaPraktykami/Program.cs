@@ -12,13 +12,12 @@ using DinkToPdf;
 var builder = WebApplication.CreateBuilder(args);
 
 
-PDFGen pdfGen = new PDFGen();
-pdfGen.CopyFile(@"C:/Users/Pawel/Downloads/FileTEST.docx", @"C:/Users/Pawel/Desktop/FileNEW.docx");
-pdfGen.MassReplacing(@"C:/Users/Pawel/Desktop/FileNEW.docx");
+//PDFGen pdfGen = new PDFGen();
+//pdfGen.CopyFile(@"C:\Users\Marlena\Desktop\Hakaton\silevis-psk-23-pumpernikiel-system\SystemZarzadzaniaPraktykami\PDF'y\FileTEST.docx", @"C:\Users\Marlena\Desktop\Hakaton\silevis-psk-23-pumpernikiel-system\SystemZarzadzaniaPraktykami\PDF'y\FileTEST2.docx");
+//pdfGen.MassReplacing(@"C:\Users\Marlena\Desktop\Hakaton\silevis-psk-23-pumpernikiel-system\SystemZarzadzaniaPraktykami\PDF'y\FileTEST2.docx");
 var converter = new BasicConverter(new PdfTools());
-pdfGen.ConvertDocxToPdf(converter,@"C:/Users/Pawel/Desktop/FileNEW.docx",@"C:/Users/Pawel/Desktop/FileNEW.pdf");
-//pdfgen.AddTextToPdf(@"C:/Users/Pawel/Desktop/FileTEST.pdf", "Anna Musia³, 092137");
-
+//pdfGen.ConvertDocxToPdf(converter,@"C:/Users/Pawel/Desktop/FileNEW.docx",@"C:/Users/Pawel/Desktop/FileNEW.pdf");
+//pdfGen.AddTextToPdf(@"C:/Users/Pawel/Desktop/FileTEST.pdf", "Anna Musiaï¿½, 092137");
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

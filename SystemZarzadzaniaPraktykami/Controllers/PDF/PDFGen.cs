@@ -10,11 +10,20 @@ using System.Linq;
 using DocumentFormat.OpenXml;
 using DinkToPdf.Contracts;
 using DinkToPdf;
+using SystemZarzadzaniaPraktykami.Models.User;
+using SystemZarzadzaniaPraktykami.Persistance.User;
 
 namespace SystemZarzadzaniaPraktykami.Controllers.PDF
 {
+    
     public class PDFGen
     {
+        private readonly UserService userService;
+
+        public PDFGen(UserService userService)
+        {
+            this.userService = userService;
+        }
         DateOnly donly = DateOnly.FromDateTime(DateTime.Today);
         // Ustawienie czcionki i rozmiaru tekstu
         XFont font = new XFont("Times New Roman", 12, XFontStyle.Regular);
@@ -90,8 +99,9 @@ namespace SystemZarzadzaniaPraktykami.Controllers.PDF
             into.Add("[NOTES]");
             into.Add("[DATE]");
             List<string> outo = new List<string>();
-            outo.Add("Anna Słoma");
-            outo.Add("092137");
+            string text = userService.GetLoggedInUser().firstName + " " + userService.GetLoggedInUser().lastName;
+            outo.Add(text);
+            outo.Add(userService.GetLoggedInUser().studentNumber);
             outo.Add("Informatyka");
             outo.Add("Stacjonarne");
             outo.Add("3 rok");
