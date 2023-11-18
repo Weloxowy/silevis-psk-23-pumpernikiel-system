@@ -1,0 +1,138 @@
+    
+    
+    <!DOCTYPE html>
+    <html lang="pl">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="mainPageStudent.css">
+        <title>Strona główna</title>
+    </head>
+    
+    <body>
+    
+        <nav>
+            <div class="nav-logo">
+                <a href="#">
+                    <img src="logo-politechnika.jpg">
+                </a>
+            </div>
+    
+            <ul class="nav-links">
+                <li class="link"><a href="#">Strona główna</a></li>
+                <li id="link1" class="link"><a href="#">Twoje praktyki</a></li>
+                <li id="link2" class="link"><a href="#">Oferty praktyk</a></li>
+                <li id="link3" class="link"><a href="#">Uzupełnij swoje dane</a></li>
+            </ul>
+            <form id="logoutForm" method="post" action="/Logout/LogOut">
+                <button type="submit" class="btn">Wyloguj</button>
+            </form>
+        </nav>
+    
+        <header class="container">
+            <div class="content">
+                <span class="blur"></span>
+                <span class="blur"></span>
+                <H1>System zarządzania praktykami <span>Politechniki Świętokrzyskiej</span> </H1>
+                <p>
+                    System zarządzania praktykami stworzony z myślą o studentach szukających praktyki zawodowej oraz dla pracodawców szukających praktykantów
+                </p>
+                <button class="btn">Zaczynajmy</button>
+            </div>
+        </header>
+    
+        <section class="container">
+            <h2 class="header">TWOJE PRAKTYKI</h2>
+            <p class="sub-header">
+                Tu pojawią się dane na temat Twoich aktualnych praktyk
+            </p>
+            <div class="twojePraktyki">
+                
+            </div>
+        </section>
+    
+        <section class="container">
+            <h2 class="header">OFERTY PRAKTYK</h2>
+            <p class="sub-header">
+            <div class="error-message">
+            
+            </div>
+            </p>
+            <div class="ofertyPraktyk">
+                @ViewBag.Message
+            </div>
+        </section>
+    
+        <section class="container">
+            <h2 class="header">UZUPEŁNIJ SWOJE DANE</h2>
+            <p class="sub-header">
+            
+            </p>
+
+            <form action="/obsługa-formularza" method="post">
+                <label for="argument">Argument:</label>
+                <input type="text" id="argument" name="argument" required><br>
+
+                <label for="workplace">Miejsce pracy:</label>
+                <input type="text" id="workplace" name="workplace" required><br>
+
+                <label for="workplaceAddress">Adres miejsca pracy:</label>
+                <input type="text" id="workplaceAddress" name="workplaceAddress" required><br>
+
+                <label for="profile">Profil:</label>
+                <input type="text" id="profile" name="profile" required><br>
+
+                <label for="position">Stanowisko:</label>
+                <input type="text" id="position" name="position" required><br>
+
+                <label for="worktime1">Godziny pracy:</label>
+                <input type="text" id="worktime1" name="worktime1" required><br>
+
+                <label for="duties">Obowiązki:</label>
+                <input type="text" id="duties" name="duties" required><br>
+
+                <label for="coordinator">Koordynator:</label>
+                <input type="text" id="coordinator" name="coordinator" required><br>
+
+                <label for="notes">Notatki:</label>
+                <input type="text" id="notes" name="notes" required><br>
+
+                <input type="submit" value="Dodaj użytkownika">
+
+            </form>i
+            <div class="ofertyPraktyk">
+            </div>
+        </section>
+    
+        <section class="container">
+            <h2 class="header">KREATOR WNIOSKÓW</h2>
+            <p class="sub-header">
+                Tu pojawią się dane na temat Twoich aktualnych praktyk
+            </p>
+            <div class="twojePraktyki">
+            </div>
+        </section>
+    
+        <section class="container">
+            <h2 class="header">TWOJE WNIOSKI</h2>
+            <p class="sub-header">
+                Tu pojawią się dane na temat Twoich aktualnych praktyk
+            </p>
+            <div class="twojePraktyki">
+            </div>
+        </section>
+    
+        <footer class="container">
+    
+        </footer>
+    
+        <div class="copyright">
+            Copyright © 2023 PumpernikielTeam. Wszystkie prawa zastżeżone.
+        </div>
+    
+    
+        <script src="script.js"></script>
+    </body>
+    
+    </html>

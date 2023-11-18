@@ -11,15 +11,18 @@ namespace SystemZarzadzaniaPraktykami.wwwroot.WebControllers;
 
 public class LoginController : Controller
 {
-    private readonly UserService _userService = new UserService();
-    
+    private readonly IUserService _userService;
+    public LoginController(IUserService userService)
+    {
+        _userService = userService;
+    }
     // GET: /Login/RedirectToExample
     [HttpGet]
-    public async Task<IActionResult> RedirectToExample(string identyfikator)
+    [HttpGet]
+    public async Task<IActionResult> RedirectToExample(string identyfikator, string error = null)
     {
-        
         string apiUrl = $"http://hackathon23-mockapi-env.eba-qfrnjqkt.eu-central-1.elasticbeanstalk.com/user/{identyfikator}";
-      //  string endUrl = $"http://www.example.com";
+
         using (HttpClient client = new HttpClient())
         {
             HttpResponseMessage response = await client.GetAsync(apiUrl);
@@ -28,10 +31,11 @@ public class LoginController : Controller
                 string json = await response.Content.ReadAsStringAsync();
                 User user = Newtonsoft.Json.JsonConvert.DeserializeObject<User>(json);
                 _userService.SetLoggedInUser(user);
-                
+                return Redirect("https://localhost:1001/StronaGlowna.html");
             }
         }
-        
-        return Redirect("https://localhost:1001/StronaGlowna.html");
+
+        return Redirect($"https://localhost:1001/Index.html?error=Object not found. Please try again.");
     }
+
 }

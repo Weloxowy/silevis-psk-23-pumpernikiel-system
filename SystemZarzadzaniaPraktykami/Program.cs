@@ -6,13 +6,18 @@ using System.Reflection;
 using SystemZarzadzaniaPraktykami.Models.User;
 using SystemZarzadzaniaPraktykami.Controllers.PDF;
 using SystemZarzadzaniaPraktykami.Persistance.User;
-using DinkToPdf.Contracts;
+using SystemZarzadzaniaPraktykami.wwwroot.WebControllers;
 using DinkToPdf;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
-//PDFGen pdfGen = new PDFGen();
+//PDFGen pdfGen = new PDFGen();//PDFGen pdfGen = new PDFGen();
+//pdfGen.CopyFile(@"C:\Users\Marlena\Desktop\Hakaton\silevis-psk-23-pumpernikiel-system\SystemZarzadzaniaPraktykami\PDF'y\FileTEST.docx", @"C:\Users\Marlena\Desktop\Hakaton\silevis-psk-23-pumpernikiel-system\SystemZarzadzaniaPraktykami\PDF'y\FileTEST2.docx");
+//pdfGen.MassReplacing(@"C:\Users\Marlena\Desktop\Hakaton\silevis-psk-23-pumpernikiel-system\SystemZarzadzaniaPraktykami\PDF'y\FileTEST2.docx");
+var converter = new BasicConverter(new PdfTools());
+//pdfGen.ConvertDocxToPdf(converter,@"C:/Users/Pawel/Desktop/FileNEW.docx",@"C:/Users/Pawel/Desktop/FileNEW.pdf");
+//pdfGen.AddTextToPdf(@"C:/Users/Pawel/Desktop/FileTEST.pdf", "Anna Musia�, 092137");
 //pdfGen.CopyFile(@"C:\Users\Marlena\Desktop\Hakaton\silevis-psk-23-pumpernikiel-system\SystemZarzadzaniaPraktykami\PDF'y\FileTEST.docx", @"C:\Users\Marlena\Desktop\Hakaton\silevis-psk-23-pumpernikiel-system\SystemZarzadzaniaPraktykami\PDF'y\FileTEST2.docx");
 //pdfGen.MassReplacing(@"C:\Users\Marlena\Desktop\Hakaton\silevis-psk-23-pumpernikiel-system\SystemZarzadzaniaPraktykami\PDF'y\FileTEST2.docx");
 var converter = new BasicConverter(new PdfTools());
@@ -40,8 +45,8 @@ var app = builder.Build();
 
 using var scope = app.Services.CreateScope();
 var migrator = scope.ServiceProvider.GetService<IMigrationRunner>();
-migrator.ListMigrations();
-migrator.MigrateUp();
+//migrator.ListMigrations();
+//migrator.MigrateUp();
 
 if (app.Environment.IsDevelopment())
 {
@@ -65,5 +70,4 @@ app.UseEndpoints(endpoints =>
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
-User user = new User();
 app.Run();

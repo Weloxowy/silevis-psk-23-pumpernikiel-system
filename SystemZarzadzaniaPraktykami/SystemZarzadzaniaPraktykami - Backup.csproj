@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -7,11 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DinkToPdf" Version="1.0.8" />
-    <PackageReference Include="DocumentFormat.OpenXml" Version="3.0.0" />
     <PackageReference Include="FluentMigrator.Runner" Version="3.3.2" />
     <PackageReference Include="FluentNHibernate" Version="3.3.0" />
-    <PackageReference Include="LibWkHtmlToX-32" Version="0.12.6.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.11" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NHibernate" Version="5.4.6" />
@@ -21,18 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="wwwroot\WebControllers\HomeController.cs" />
     <Compile Include="wwwroot\WebControllers\LoginController.cs" />
-    <Compile Include="wwwroot\WebControllers\LogoutController.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\JavaScript.js" />
-    <None Include="wwwroot\mainPageStudent.css" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\PDF\" />
   </ItemGroup>
 
 </Project>

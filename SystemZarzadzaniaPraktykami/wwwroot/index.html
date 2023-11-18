@@ -12,11 +12,12 @@
 <div class="container" id="container">
     <div class="form-container sign-in">
         <form action="/Login/RedirectToExample" method="get">
+            <div id="errorMessage" class="error-message"></div>
             <h1>Logowanie</h1>
             <input type="text" name="identyfikator" placeholder="Identyfikator">
             <input type="password" name="haslo" placeholder="Hasło">
             <a href="StronaGlowna.html">Zapomniałem hasła</a>
-            <div class="buttonOne"> 
+            <div class="buttonOne">
                 <button type="submit">ZALOGUJ</button>
             </div>
             <div class="buttonTwo">
@@ -31,9 +32,21 @@
             </div>
         </div>
     </div>
-
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var params = new URLSearchParams(window.location.search);
+        var errorMessage = params.get("error");
+        var errorMessageElement = document.getElementById("errorMessage");
+
+        if (errorMessage && errorMessage.trim() !== "") {
+            errorMessageElement.innerText = errorMessage;
+        } else {
+            errorMessageElement.style.display = "none";
+        }
+    });
+</script>
 </body>
 
 </html>
