@@ -2,5 +2,7 @@
 {
     public interface IUserService
     {
+        User GetLoggedInUser();
+        void SetLoggedInUser(User user);
     }
 }

@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Reflection;
+using SystemZarzadzaniaPraktykami.Models.User;
+using SystemZarzadzaniaPraktykami.Persistance.User;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +13,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddRazorPages();
-
+builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IUserService, UserService>();
 // Fluent Migrator
 builder.Services.AddFluentMigratorCore()
     .ConfigureRunner(c =>
@@ -47,8 +50,10 @@ app.MapControllers();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapRazorPages();
-    endpoints.MapDefaultControllerRoute();
-    
+    //endpoints.MapDefaultControllerRoute();
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
 });
-
+User user = new User();
 app.Run();
