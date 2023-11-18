@@ -9,7 +9,7 @@ namespace SystemZarzadzaniaPraktykami.Controllers.PDF
     public class PDFGen
     {
         // Ustawienie czcionki i rozmiaru tekstu
-        XFont font = new XFont("Arial", 30, XFontStyle.Regular);
+        XFont font = new XFont("Times New Roman", 12, XFontStyle.Regular);
 
         static PDFGen()
         {
@@ -35,16 +35,22 @@ namespace SystemZarzadzaniaPraktykami.Controllers.PDF
             // Creating a new object
             XGraphics gfx = XGraphics.FromPdfPage(page);
 
-            // Adding text to PDF file
-            AddText(gfx, textToAdd, 130, 80);
-            AddText(gfx, "Informatyka, 3 rok", 130, 110);
-            AddText(gfx, "Stacjonarne", 130, 180);
-            AddText(gfx, "dr. xxxxxxxxxxxxxxxxx", 400, 250);
-            AddText(gfx, "Informatyka, 3 rok", 350, 350);
-            AddText(gfx, "23", 400, 350);
-            AddText(gfx, "24", 400, 350);
-            AddText(gfx, "posiadanej umowy o prace", 250, 390);
-
+            // Adding text to PDF file - page 0
+            AddText(gfx, textToAdd, 130, 110);
+            AddText(gfx, "Informatyka, 3 rok", 130, 140);
+            AddText(gfx, "Stacjonarne", 130, 170);
+            AddText(gfx, "dr. Barbara Łukawska", 400, 265);
+            AddText(gfx, "Informatyka", 130, 350);
+            AddText(gfx, "23", 400, 360);
+            AddText(gfx, "24", 420, 360);
+            AddText(gfx, "posiadanej umowy o prace", 250, 405);
+            page = document.Pages[1];
+            XGraphics gfx2 = XGraphics.FromPdfPage(page);
+            AddText(gfx2, textToAdd, 101, 170);
+            AddText(gfx2, "Firma", 430, 220);
+            AddText(gfx2, "Ul. Zawlazła 21/37, 12-345 Wadowice", 220, 250);
+            AddText(gfx2, "Szachrajstwa, Malwersacje", 110, 300);
+            AddText(gfx2, "Nosiwoda", 101, 380);
             // Saving PDF
             document.Save(filePath);
         }
