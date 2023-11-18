@@ -12,17 +12,7 @@ using DinkToPdf;
 var builder = WebApplication.CreateBuilder(args);
 
 
-//PDFGen pdfGen = new PDFGen();//PDFGen pdfGen = new PDFGen();
-//pdfGen.CopyFile(@"C:\Users\Marlena\Desktop\Hakaton\silevis-psk-23-pumpernikiel-system\SystemZarzadzaniaPraktykami\PDF'y\FileTEST.docx", @"C:\Users\Marlena\Desktop\Hakaton\silevis-psk-23-pumpernikiel-system\SystemZarzadzaniaPraktykami\PDF'y\FileTEST2.docx");
-//pdfGen.MassReplacing(@"C:\Users\Marlena\Desktop\Hakaton\silevis-psk-23-pumpernikiel-system\SystemZarzadzaniaPraktykami\PDF'y\FileTEST2.docx");
-var converter = new BasicConverter(new PdfTools());
-//pdfGen.ConvertDocxToPdf(converter,@"C:/Users/Pawel/Desktop/FileNEW.docx",@"C:/Users/Pawel/Desktop/FileNEW.pdf");
-//pdfGen.AddTextToPdf(@"C:/Users/Pawel/Desktop/FileTEST.pdf", "Anna Musia�, 092137");
-//pdfGen.CopyFile(@"C:\Users\Marlena\Desktop\Hakaton\silevis-psk-23-pumpernikiel-system\SystemZarzadzaniaPraktykami\PDF'y\FileTEST.docx", @"C:\Users\Marlena\Desktop\Hakaton\silevis-psk-23-pumpernikiel-system\SystemZarzadzaniaPraktykami\PDF'y\FileTEST2.docx");
-//pdfGen.MassReplacing(@"C:\Users\Marlena\Desktop\Hakaton\silevis-psk-23-pumpernikiel-system\SystemZarzadzaniaPraktykami\PDF'y\FileTEST2.docx");
-var converter = new BasicConverter(new PdfTools());
-//pdfGen.ConvertDocxToPdf(converter,@"C:/Users/Pawel/Desktop/FileNEW.docx",@"C:/Users/Pawel/Desktop/FileNEW.pdf");
-//pdfGen.AddTextToPdf(@"C:/Users/Pawel/Desktop/FileTEST.pdf", "Anna Musia�, 092137");
+
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -30,6 +20,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IUserService, UserService>();
+//PDFGen pdfGen = new PDFGen();//PDFGen pdfGen = new PDFGen();
+//pdfGen.CopyFile(@"C:\Users\Marlena\Desktop\Hakaton\silevis-psk-23-pumpernikiel-system\SystemZarzadzaniaPraktykami\PDF'y\FileTEST.docx", @"C:\Users\Marlena\Desktop\Hakaton\silevis-psk-23-pumpernikiel-system\SystemZarzadzaniaPraktykami\PDF'y\FileTEST2.docx");
+//pdfGen.MassReplacing(@"C:\Users\Marlena\Desktop\Hakaton\silevis-psk-23-pumpernikiel-system\SystemZarzadzaniaPraktykami\PDF'y\FileTEST2.docx");
 // Fluent Migrator
 builder.Services.AddFluentMigratorCore()
     .ConfigureRunner(c =>

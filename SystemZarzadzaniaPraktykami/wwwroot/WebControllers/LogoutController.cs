@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using SystemZarzadzaniaPraktykami.Controllers.PDF;
 using SystemZarzadzaniaPraktykami.Models.User;
 
 namespace SystemZarzadzaniaPraktykami.wwwroot.WebControllers;
@@ -14,6 +15,7 @@ public class LogoutController : Controller
     [HttpPost]
     public async Task<IActionResult> LogOut()
     {
+        PDF pdf = new PDF(_userService);
         _userService.clear();
         Console.WriteLine("_userService.GetLoggedInUser().studentNumber");
         Console.WriteLine(_userService.GetLoggedInUser().studentNumber);
