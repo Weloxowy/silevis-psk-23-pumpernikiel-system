@@ -6,7 +6,7 @@
     {
         public User() : base() {}
 
-        public User(string id, string firstName, string lastName, int staffStatus, int studentStatus, string email, string studentNumber, List<StudentProgrammes> studentProgrammes)
+        public User(string id, string firstName, string lastName, int staffStatus, int studentStatus, string email, string studentNumber, List<StudentProgrammes> studentProgrammes, bool lang)
         {
             this.id = id;
             this.firstName = firstName;

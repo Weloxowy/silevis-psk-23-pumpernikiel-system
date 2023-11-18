@@ -18,18 +18,15 @@ public class HomeController : Controller
     [Route("StronaGlowna.html")]
     public IActionResult Index()
     {
-        string filePath = Path.Combine( "wwwroot/StronaGlowna.html");
+        string filePath = Path.Combine( "wwwroot/mainPage.html");
         Console.WriteLine(_userService.GetLoggedInUserName());
-        // Set a message in ViewBag
+        
         ViewBag.Message = _userService.GetLoggedInUserName();
 
-        // Read the HTML file
         string fileContent = System.IO.File.ReadAllText(filePath);
 
-        // Replace a placeholder in the HTML file with dynamic content
         fileContent = fileContent.Replace("@ViewBag.Message", ViewBag.Message);
 
-        // Return the HTML file as content
         return Content(fileContent, "text/html");
         
     }

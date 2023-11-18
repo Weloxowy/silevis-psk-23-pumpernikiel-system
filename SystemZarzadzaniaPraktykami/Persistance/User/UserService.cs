@@ -19,5 +19,17 @@ namespace SystemZarzadzaniaPraktykami.Persistance.User
         {
             return _loggedInUser.firstName;
         }
+
+        public void clear()
+        {
+            _loggedInUser.firstName = null;
+            _loggedInUser.email = null;
+            _loggedInUser.studentNumber = null;
+            _loggedInUser.studentProgrammes = null;
+            _loggedInUser.id = null;
+            _loggedInUser.lastName = null;
+            _loggedInUser.staffStatus = -1;
+            _loggedInUser.studentStatus = -1;
+        }
     }
 }

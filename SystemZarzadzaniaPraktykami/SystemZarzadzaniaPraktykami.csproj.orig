@@ -10,22 +10,11 @@
     <PackageReference Include="FluentMigrator.Runner" Version="3.3.2" />
     <PackageReference Include="FluentNHibernate" Version="3.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.11" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NHibernate" Version="5.4.6" />
     <PackageReference Include="PDFsharp" Version="1.50.5147" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
-  <ItemGroup>
     <Compile Include="wwwroot\WebControllers\HomeController.cs" />
-    <Compile Include="wwwroot\WebControllers\LoginController.cs" />
-    <Compile Include="wwwroot\WebControllers\LogoutController.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\JavaScript.js" />
-    <None Include="wwwroot\mainPageStudent.css" />
-  </ItemGroup>
-
 </Project>

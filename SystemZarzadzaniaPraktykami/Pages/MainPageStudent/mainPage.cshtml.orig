@@ -1,6 +1,12 @@
-
+<<<<<<< HEAD:SystemZarzadzaniaPraktykami/wwwroot/StronaGlowna.html
+﻿
+=======
+@model SystemZarzadzaniaPraktykami.Pages.MainPage.IndexModel
+@{
+}
 
 <!DOCTYPE html>
+>>>>>>> d951696e3880be38096ec441af158800d8495339:SystemZarzadzaniaPraktykami/Pages/MainPageStudent/mainPage.cshtml
 <html lang="pl">
 
 <head>
@@ -46,7 +52,6 @@
             Tu pojawią się dane na temat Twoich aktualnych praktyk
         </p>
         <div class="twojePraktyki">
-            
         </div>
     </section>
 
@@ -56,7 +61,6 @@
             @ViewBag.Message
         </p>
         <div class="ofertyPraktyk">
-            
         </div>
     </section>
 

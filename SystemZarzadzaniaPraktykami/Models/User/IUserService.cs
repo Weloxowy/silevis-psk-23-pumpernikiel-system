@@ -5,5 +5,6 @@
         User GetLoggedInUser();
         void SetLoggedInUser(User user);
         string GetLoggedInUserName();
+        public void clear();
     }
 }
