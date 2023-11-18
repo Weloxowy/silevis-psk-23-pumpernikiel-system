@@ -1,9 +1,8 @@
 namespace SystemZarzadzaniaPraktykami.Models.studentProgrammes;
 
-public enum StudentProgrammes
+public class StudentProgrammes
 {
-
-    Informatyka = 1,
-    AutomatykaIRobotyka  = 2,
+   public int id;
+   public string name;
 
 }
