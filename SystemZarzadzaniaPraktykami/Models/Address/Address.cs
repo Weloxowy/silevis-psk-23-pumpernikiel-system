@@ -13,7 +13,7 @@ namespace SystemZarzadzaniaPraktykami.Models.Address
             this.city = city;  
             this.street = street;
             this.postcode = postcode;
-            this.premises_number = number_house;
+            this.numeber_house = number_house;
             this.premises_number = premises_number;
 
             

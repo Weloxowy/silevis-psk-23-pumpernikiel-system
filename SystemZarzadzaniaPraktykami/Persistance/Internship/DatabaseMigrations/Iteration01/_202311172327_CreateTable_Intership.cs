@@ -1,6 +1,5 @@
 ﻿using FluentMigrator;
 using System.Security.Cryptography;
-using SystemZarzadzaniaPraktykami.Models.Company;
 using SystemZarzadzaniaPraktykami.Models.internship;
 
 
@@ -22,12 +21,11 @@ namespace SystemZarzadzaniaPraktykami.Persistance.User.DatabaseMigrations.Iterat
                     .WithColumn(nameof(Models.internship.Internship.studentEmail)).AsString().NotNullable()
                     .WithColumn(nameof(Models.internship.Internship.IntershipEnum)).AsInt32().NotNullable()
                     .WithColumn(nameof(Models.internship.Internship.feedBack)).AsString().NotNullable()
-                    .WithColumn(nameof(Models.internship.Internship.company)).AsString().NotNullable()
                     .WithColumn(nameof(Models.internship.Internship.telNumber)).AsString().NotNullable()
-                    .WithColumn(nameof(Models.internship.Internship.PassEnum)).AsInt32().NotNullable()
-                    .WithColumn("FK_company").AsGuid().NotNullable();
-               
-                Create.ForeignKey("FK_company").FromTable("Internship").ForeignColumn("company").ToTable("Company").PrimaryColumn("id");
+                    .WithColumn(nameof(Models.internship.Internship.PassEnum)).AsInt32().NotNullable();
+                //  .WithColumn("company").AsGuid().NotNullable();
+
+                //  Create.ForeignKey("FK_company").FromTable("Internship").ForeignColumn("company").ToTable("Company").PrimaryColumn("id");
 
             }
         }

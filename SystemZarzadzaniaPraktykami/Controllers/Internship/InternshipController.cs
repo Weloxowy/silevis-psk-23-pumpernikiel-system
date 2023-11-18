@@ -5,9 +5,8 @@ using SystemZarzadzaniaPraktykami.Persistance.Internship;
 
 namespace SystemZarzadzaniaPraktykami.Controllers.Intership
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class InternshipController : ControllerBase
+    
+   /* public class InternshipController : ControllerBase
     {
         readonly IntershipService intershipService = new IntershipService();
         [HttpGet]
@@ -20,5 +19,5 @@ namespace SystemZarzadzaniaPraktykami.Controllers.Intership
             }
         }
 
-    }
+    }*/
 }

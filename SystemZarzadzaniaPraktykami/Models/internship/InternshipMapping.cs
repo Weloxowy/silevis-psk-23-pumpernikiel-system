@@ -7,7 +7,7 @@ namespace SystemZarzadzaniaPraktykami.Models.internship
     {
 
      
-            readonly string tablename = nameof(User);
+            readonly string tablename = nameof(internship);
             public InternshipMapping()
             {
                 Id(x => x.id).GeneratedBy.Guid();
@@ -16,10 +16,8 @@ namespace SystemZarzadzaniaPraktykami.Models.internship
                 Map(x => x.studentNumber);
                 Map(x => x.studentFirstName);
                 Map(x => x.studentEmail);
-                Map(x => x.studentNumber);
                 Map(x => x.IntershipEnum).CustomType<InternshipEnum>();
                 Map(x => x.feedBack);
-                Map(x => x.company);
                 Map(x => x.telNumber);
                 Map(x => x.PassEnum).CustomType<passEnum>();
                 Table(tablename);

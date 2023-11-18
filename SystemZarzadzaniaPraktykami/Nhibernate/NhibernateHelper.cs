@@ -29,8 +29,8 @@ namespace SystemZarzadzaniaPraktykami.Nhibernate;
                                 "Server=localhost\\SQLEXPRESS;Database=Hackaton;Integrated Security=SSPI;Application Name=SystemZarzadzaniaPraktykami;TrustServerCertificate=true;")
                         )
                         .Mappings(m =>
-                            m.FluentMappings.AddFromAssemblyOf<Models.User.User>()
-                        )
+                            m.FluentMappings.AddFromAssemblyOf<Models.Address.Address>()
+                        ) 
                             .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
                             .BuildSessionFactory();
 
