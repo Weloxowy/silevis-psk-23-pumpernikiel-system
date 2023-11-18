@@ -19,7 +19,7 @@ public class LoginController : Controller
     {
         
         string apiUrl = $"http://hackathon23-mockapi-env.eba-qfrnjqkt.eu-central-1.elasticbeanstalk.com/user/{identyfikator}";
-        string endUrl = $"http://www.example.com";
+      //  string endUrl = $"http://www.example.com";
         using (HttpClient client = new HttpClient())
         {
             HttpResponseMessage response = await client.GetAsync(apiUrl);
@@ -32,6 +32,6 @@ public class LoginController : Controller
             }
         }
         
-        return Redirect(endUrl);
+        return Redirect("https://localhost:1001/StronaGlowna.html");
     }
 }
