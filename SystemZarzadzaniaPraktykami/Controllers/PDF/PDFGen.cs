@@ -5,13 +5,17 @@ using PdfSharp.Pdf.IO;
 using System.Text;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
+using System.IO;
 using System.Linq;
 using DocumentFormat.OpenXml;
+using DinkToPdf.Contracts;
+using DinkToPdf;
 
 namespace SystemZarzadzaniaPraktykami.Controllers.PDF
 {
     public class PDFGen
     {
+        DateOnly donly = DateOnly.FromDateTime(DateTime.Today);
         // Ustawienie czcionki i rozmiaru tekstu
         XFont font = new XFont("Times New Roman", 12, XFontStyle.Regular);
 
@@ -61,6 +65,8 @@ namespace SystemZarzadzaniaPraktykami.Controllers.PDF
 
         public void MassReplacing(string filePath)
         {
+            Dictionary<String,String> dic = new Dictionary<String,String>();
+
             List<string> into = new List<string>();
             into.Add("[NAME]");
             into.Add("[SNUM]");
@@ -68,7 +74,21 @@ namespace SystemZarzadzaniaPraktykami.Controllers.PDF
             into.Add("[TYPE OF STUDIES]");
             into.Add("[YEAR]");
             into.Add("[RECIEVER]");
-            //into.Add("[FACULTY]");
+            into.Add("[ARGUMENT]");
+            into.Add("[NAME1]");
+            into.Add("[NAME2]");
+            into.Add("[NAME3]");
+            into.Add("[FR]");
+            into.Add("[SR]");
+            into.Add("[WORKPLACE]");
+            into.Add("[WORKPLACE ADDRESS]");
+            into.Add("[PROFILE]");
+            into.Add("[POSITION]");
+            into.Add("[WORKTIME]");
+            into.Add("[DUTIES]");
+            into.Add("[COORDINATOR]");
+            into.Add("[NOTES]");
+            into.Add("[DATE]");
             List<string> outo = new List<string>();
             outo.Add("Anna Słoma");
             outo.Add("092137");
@@ -76,34 +96,30 @@ namespace SystemZarzadzaniaPraktykami.Controllers.PDF
             outo.Add("Stacjonarne");
             outo.Add("3 rok");
             outo.Add("dr. AAA BBBBBBB");
-            //outo.Add("Informatyka");
-            for(int i = 0;i< 5; i++)
+            outo.Add("umowy o pracę");
+            outo.Add("AAAAAAAAAAAA");
+            outo.Add("BBBBBBBBBBBB");
+            outo.Add("CCCCCCCCCCCC");
+            outo.Add("23");
+            outo.Add("24");
+            outo.Add("FIRMA");
+            outo.Add("Zawlazła 21/37, 25-311 Kielce");
+            outo.Add("Wymuszenia, Stręczycielstwo");
+            outo.Add("Konsultant ds. IT");
+            outo.Add("160 h.");
+            outo.Add("Zarządzanie infrastrukturą sieciową firmy. Praca na helpdesku.");
+            outo.Add("Artur Kawalec");
+            outo.Add("");
+            outo.Add(donly.ToString());
+            for (int i = 0;i< 20; i++)
             {
-                ReplaceTextInWord(@"C:/Users/Pawel/Desktop/FileTEST.docx", into[i], outo[i]);
+                ReplaceTextInWord(filePath, into[i], outo[i]);
             }
             
         }
-        public void CopyWordDocument(string sourceFilePath, string destinationFilePath)
+        public void CopyFile(string sourceFilePath, string destinationFilePath)
         {
-            using (WordprocessingDocument sourceDoc = WordprocessingDocument.Open(sourceFilePath, false))
-            using (WordprocessingDocument destDoc = WordprocessingDocument.Create(destinationFilePath, WordprocessingDocumentType.Document))
-            {
-                // Klonowanie struktury dokumentu
-                destDoc.AddMainDocumentPart().Document = new Document(sourceDoc.MainDocumentPart.Document.OuterXml);
-
-                // Kopiowanie zawartości
-                var paragraphs = destDoc.MainDocumentPart.Document.Body.Elements<Paragraph>().ToList();
-                foreach (var paragraph in sourceDoc.MainDocumentPart.Document.Body.Elements<Paragraph>())
-                {
-                    paragraphs.Add(new Paragraph(paragraph.OuterXml));
-                }
-
-                // Zapisanie zmian w nowym dokumencie
-                destDoc.MainDocumentPart.Document.Body.RemoveAllChildren<Paragraph>();
-                destDoc.MainDocumentPart.Document.Body.Append(paragraphs);
-
-                destDoc.MainDocumentPart.Document.Save();
-            }
+            File.Copy(sourceFilePath, destinationFilePath, true);
         }
 
         public void ReplaceTextInWord(string filePath, string searchText, string replaceText)
@@ -132,6 +148,44 @@ namespace SystemZarzadzaniaPraktykami.Controllers.PDF
                 // Zapisanie zmian w dokumencie
                 doc.MainDocumentPart.Document.Save();
             }
+        }
+
+        public void initCOnversion(string sourceFilePath, string destinationFilePath)
+        {
+            // Inicjalizacja konwertera
+            var converter = new BasicConverter(new PdfTools());
+
+            // Ścieżka do pliku .docx wejściowego
+            string docxFilePath = "ścieżka_do_pliku.docx";
+
+            // Ścieżka do pliku .pdf wynikowego
+            string pdfFilePath = "ścieżka_do_pliku.pdf";
+
+            // Konwersja .docx do .pdf
+            ConvertDocxToPdf(converter, sourceFilePath, destinationFilePath);
+
+            Console.WriteLine("Konwersja zakończona pomyślnie.");
+        }
+        public void ConvertDocxToPdf(IConverter converter, string inputFilePath, string outputFilePath)
+        {
+            var doc = new HtmlToPdfDocument()
+            {
+                GlobalSettings = {
+                PaperSize = PaperKind.A4,
+                Orientation = Orientation.Portrait
+            },
+                Objects = {
+                new ObjectSettings() {
+                    PagesCount = true,
+                    HtmlContent = File.ReadAllText(inputFilePath),
+                    WebSettings = { DefaultEncoding = "utf-8" }
+                }
+            }
+            };
+
+            byte[] pdfBytes = converter.Convert(doc);
+
+            File.WriteAllBytes(outputFilePath, pdfBytes);
         }
     }
 }
