@@ -9,7 +9,7 @@ namespace SystemZarzadzaniaPraktykami.Controllers.PDF
     public class PDFGen
     {
         // Ustawienie czcionki i rozmiaru tekstu
-        XFont font = new XFont("Arial", 12);
+        XFont font = new XFont("Arial", 30, XFontStyle.Regular);
 
         static PDFGen()
         {
